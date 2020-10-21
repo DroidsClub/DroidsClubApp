@@ -12,7 +12,7 @@
         tools:layout="@layout/android_club_fragment">
 
         <action
-            android:id="@+id/action_HomeFragment_to_MuhammedFragment"
+            android:id="@+id/action_Home_to_Muhammed"
             app:destination="@id/MuhammedFragment" />
     </fragment>
     <fragment
@@ -22,7 +22,7 @@
         tools:layout="@layout/muhammed_fragment">
 
         <action
-            android:id="@+id/action_MuhammedFragment_to_DavidFragment"
+            android:id="@+id/action_Muhammed_to_David"
             app:destination="@id/DavidFragment" />
     </fragment>
     <fragment
@@ -32,7 +32,7 @@
         tools:layout="@layout/david_fragment">
 
         <action
-            android:id="@+id/action_DavidFragment_to_EmmaFragment"
+            android:id="@+id/action_David_to_Emma"
             app:destination="@id/EmmaFragment" />
     </fragment>
     <fragment
@@ -42,7 +42,7 @@
         tools:layout="@layout/emma_fragment">
 
         <action
-            android:id="@+id/action_EmmaFragment_to_BenFragment"
+            android:id="@+id/action_Emma_to_Ben"
             app:destination="@id/BenFragment" />
     </fragment>
     <fragment
@@ -52,7 +52,27 @@
         tools:layout="@layout/ben_fragment">
 
         <action
-            android:id="@+id/action_BenFragment_to_Home"
+            android:id="@+id/action_Ben_to_Lee"
+            app:destination="@id/LeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LeeFragment"
+        android:name="com.example.androidclubapp.LeeFragment"
+        android:label="@string/lee_fragment_label"
+        tools:layout="@layout/lee_fragment">
+
+        <action
+            android:id="@+id/action_Lee_to_Jake"
+            app:destination="@id/JakeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/JakeFragment"
+        android:name="com.example.androidclubapp.JakeFragment"
+        android:label="@string/jake_fragment_label"
+        tools:layout="@layout/jake_fragment">
+
+        <action
+            android:id="@+id/action_Jake_to_Home"
             app:destination="@id/AndroidClubFragment" />
     </fragment>
 </navigation>

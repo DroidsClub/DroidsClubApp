@@ -7,6 +7,8 @@
     <string name="david_fragment_label">David</string>
     <string name="emma_fragment_label">Emma</string>
     <string name="ben_fragment_label">Ben</string>
+    <string name="lee_fragment_label">Lee</string>
+    <string name="jake_fragment_label">Jake</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="home">Home</string>

@@ -25,7 +25,7 @@ class DavidFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            findNavController().navigate(R.id.action_DavidFragment_to_EmmaFragment)
+            findNavController().navigate(R.id.action_David_to_Emma)
         }
     }
 }

@@ -25,7 +25,7 @@ class AndroidClubFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_MuhammedFragment)
+            findNavController().navigate(R.id.action_Home_to_Muhammed)
         }
     }
 }
