@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/AndroidClubFragment">
+
+    <fragment
+        android:id="@+id/AndroidClubFragment"
+        android:name="com.example.androidclubapp.AndroidClubFragment"
+        android:label="@string/android_club_fragment_label"
+        tools:layout="@layout/android_club_fragment">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_MuhammedFragment"
+            app:destination="@id/MuhammedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/MuhammedFragment"
+        android:name="com.example.androidclubapp.MuhammedFragment"
+        android:label="@string/muhammed_fragment_label"
+        tools:layout="@layout/muhammed_fragment">
+
+        <action
+            android:id="@+id/action_MuhammedFragment_to_DavidFragment"
+            app:destination="@id/DavidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DavidFragment"
+        android:name="com.example.androidclubapp.DavidFragment"
+        android:label="@string/david_fragment_label"
+        tools:layout="@layout/david_fragment">
+
+        <action
+            android:id="@+id/action_DavidFragment_to_EmmaFragment"
+            app:destination="@id/EmmaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EmmaFragment"
+        android:name="com.example.androidclubapp.EmmaFragment"
+        android:label="@string/emma_fragment_label"
+        tools:layout="@layout/emma_fragment">
+
+        <action
+            android:id="@+id/action_EmmaFragment_to_BenFragment"
+            app:destination="@id/BenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BenFragment"
+        android:name="com.example.androidclubapp.BenFragment"
+        android:label="@string/ben_fragment_label"
+        tools:layout="@layout/ben_fragment">
+
+        <action
+            android:id="@+id/action_BenFragment_to_Home"
+            app:destination="@id/AndroidClubFragment" />
+    </fragment>
+</navigation>
