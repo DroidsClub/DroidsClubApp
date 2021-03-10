@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.androidclubapp.connectors.PokeApiConnector
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -23,6 +24,10 @@ class AndroidClubFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val connector: PokeApiConnector = PokeApiConnector()
+
+        connector.doApiCall(view)
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(R.id.action_Home_to_Muhammed)
