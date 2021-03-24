@@ -15,5 +15,5 @@
 
     <string name="hello_first_fragment">Android Club</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="json">JSON</string>
+    <string name="pokemonText">Pokemon!</string>
 </resources>

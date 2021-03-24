@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.androidclubapp.connectors.PokeApiConnector
 
@@ -25,12 +26,21 @@ class AndroidClubFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val connector: PokeApiConnector = PokeApiConnector()
-
-        connector.doApiCall(view)
+        val connector = PokeApiConnector()
 
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_Home_to_Muhammed)
+
+            val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
+
+            val id = pokemonText.take(3)
+
+            val idAsInt = id.toString().toIntOrNull()
+
+            if(idAsInt != null){
+                connector.doApiCall(view, idAsInt + 1)
+            } else {
+                connector.doApiCall(view, 1)
+            }
         }
     }
 }
