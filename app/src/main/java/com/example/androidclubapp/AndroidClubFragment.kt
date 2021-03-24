@@ -32,7 +32,7 @@ class AndroidClubFragment : Fragment() {
 
             val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
 
-            val id = pokemonText.take(3)
+            val id = pokemonText.drop(1).take(3)
 
             val idAsInt = id.toString().toIntOrNull()
 

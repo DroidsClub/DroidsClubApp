@@ -1,6 +1,8 @@
 package com.example.androidclubapp.connectors
 
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.Response
@@ -29,9 +31,14 @@ class PokeApiConnector {
 
                 logger("Pokemon: $pokemon")
 
-                val viewId = "00${pokemon.id}".takeLast(3)
+                val viewId = "#" + "00${pokemon.id}".takeLast(3)
 
-                view.findViewById<TextView>(R.id.pokeResponse).text = "$viewId ${pokemon?.name}"
+                DownloadImageFromInternet(view.findViewById(R.id.pokemonImage)).execute(pokemon.sprites.other.`official-artwork`.front_default)
+
+                view.findViewById<TextView>(R.id.pokemonName).text = pokemon?.name.toString().capitalize()
+                view.findViewById<TextView>(R.id.pokeResponse).text = viewId
+
+                view.findViewById<Button>(R.id.type).text = pokemon.types[0].type.name
             },
             Response.ErrorListener { error ->
                 // TODO: Handle error
