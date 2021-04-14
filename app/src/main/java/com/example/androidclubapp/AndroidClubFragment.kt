@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.navigation.fragment.findNavController
 import com.example.androidclubapp.connectors.PokeApiConnector
 
 /**
@@ -28,7 +27,7 @@ class AndroidClubFragment : Fragment() {
 
         val connector = PokeApiConnector()
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
+        view.findViewById<Button>(R.id.button_next).setOnClickListener {
 
             val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
 

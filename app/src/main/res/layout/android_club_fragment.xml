@@ -11,7 +11,6 @@
         android:id="@+id/pokemonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:text="@string/hello_first_fragment"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/pokemonImage"
@@ -23,38 +22,63 @@
         android:id="@+id/pokeResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
         android:text="@string/pokemonText"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        app:layout_constraintBottom_toTopOf="@+id/typeGrid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pokemonImage" />
 
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
         android:text="@string/next"
+        app:layout_constraintTop_toBottomOf="@+id/typeGrid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeResponse" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/type"
+    <GridLayout
+        android:id="@+id/typeGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button_orange"
-        android:text="Type"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        android:columnCount="2"
+        android:rowCount="1"
+        app:layout_constraintBottom_toTopOf="@+id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeResponse" />
+        app:layout_constraintTop_toBottomOf="@+id/pokeResponse">
+
+        <Button
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_orange"
+            android:text="Type"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/type2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokeResponse" />
+
+        <Button
+            android:id="@+id/type2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_orange"
+            android:text="Type 2"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/button_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type"
+            tools:visibility="visible" />
+
+    </GridLayout>
 
     <ImageView
         android:id="@+id/pokemonImage"

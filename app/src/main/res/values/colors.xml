@@ -5,4 +5,11 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="operator_orange">#ff9500</color>
     <color name="white">#f6f8f9</color>
+
+    <color name="poison">#BA7FC9</color>
+    <color name="grass">#9CCB50</color>
+    <color name="water">#4592C4</color>
+    <color name="fire">#FD7D24</color>
+    <color name="electric">#EED534</color>
+
 </resources>
