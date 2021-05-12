@@ -9,6 +9,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.Volley
 import com.example.androidclubapp.R
 import com.example.androidclubapp.models.Pokemon
+import com.example.androidclubapp.models.PokemonList
+import com.example.androidclubapp.models.PokemonListItem
 
 class PokeApiConnector {
 
@@ -47,6 +49,32 @@ class PokeApiConnector {
         }
     }
 
+    fun search(view: View, matching: String) {
+        val url = "https://pokeapi.co/api/v2/pokemon?limit=898"
+
+        val queue = Volley.newRequestQueue(view.context)
+
+        val request = GsonRequest(
+            url,
+            PokemonList::class.java,
+            null,
+            Response.Listener { pokemon ->
+
+                val matchedPokemon: List<PokemonListItem> = pokemon.results.filter {
+                    it.name.contains(matching)
+                }
+
+                // TODO Display matched pokemon
+
+            },
+            Response.ErrorListener { error ->
+                // TODO: Handle error
+            }
+        )
+
+        queue.add(request)
+    }
+
     fun doApiCall(view: View, index: Int) {
         val url = "https://pokeapi.co/api/v2/pokemon/$index"
 
@@ -66,6 +94,15 @@ class PokeApiConnector {
 
                 view.findViewById<TextView>(R.id.pokemonName).text = pokemon?.name.toString().capitalize()
                 view.findViewById<TextView>(R.id.pokeResponse).text = viewId
+
+                when (pokemon.id.toInt()) {
+                    1 -> view.findViewById<Button>(R.id.button_previous).visibility = View.GONE
+                    898 -> view.findViewById<Button>(R.id.button_next).visibility = View.GONE
+                    else -> {
+                        view.findViewById<Button>(R.id.button_previous).visibility = View.VISIBLE
+                        view.findViewById<Button>(R.id.button_next).visibility = View.VISIBLE
+                    }
+                }
 
                 if(pokemon.types.size > 1){
                     view.findViewById<Button>(R.id.type).text = pokemon.types[0].type.name
