@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import com.android.volley.Response
 import com.example.androidclubapp.connectors.PokeApiConnector
+import com.example.androidclubapp.models.PokemonList
+import com.example.androidclubapp.models.PokemonListItem
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -47,6 +51,10 @@ class AndroidClubFragment : Fragment() {
 
         view.findViewById<Button>(R.id.button_previous).setOnClickListener {
             getIdAndMakeApiCall(view,false, connector)
+        }
+
+        view.findViewById<Button>(R.id.buttonA).setOnClickListener {
+            findNavController().navigate(R.id.action_Home_to_Search)
         }
     }
 }

@@ -115,4 +115,12 @@
         app:layout_constraintTop_toBottomOf="@+id/pokemonName"
         tools:src="@tools:sample/avatars" />
 
+    <Button
+        android:id="@+id/buttonA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        tools:layout_editor_absoluteX="320dp"
+        tools:layout_editor_absoluteY="679dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
