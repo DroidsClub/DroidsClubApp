@@ -22,24 +22,31 @@ class AndroidClubFragment : Fragment() {
         return inflater.inflate(R.layout.android_club_fragment, container, false)
     }
 
+    fun getIdAndMakeApiCall(view: View, next: Boolean, connector: PokeApiConnector){
+        val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
+
+        val id = pokemonText.drop(1).take(3)
+
+        val idAsInt = id.toString().toIntOrNull()
+
+        if(idAsInt != null){
+            connector.doApiCall(view, if(next) idAsInt + 1 else idAsInt - 1)
+        } else {
+            connector.doApiCall(view, 1)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val connector = PokeApiConnector()
+        val connector: PokeApiConnector = PokeApiConnector()
 
         view.findViewById<Button>(R.id.button_next).setOnClickListener {
+            getIdAndMakeApiCall(view,true, connector)
+        }
 
-            val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
-
-            val id = pokemonText.drop(1).take(3)
-
-            val idAsInt = id.toString().toIntOrNull()
-
-            if(idAsInt != null){
-                connector.doApiCall(view, idAsInt + 1)
-            } else {
-                connector.doApiCall(view, 1)
-            }
+        view.findViewById<Button>(R.id.button_previous).setOnClickListener {
+            getIdAndMakeApiCall(view,false, connector)
         }
     }
 }
