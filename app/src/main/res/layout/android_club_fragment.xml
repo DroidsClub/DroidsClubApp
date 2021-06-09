@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/pokeResponse"
+        android:id="@+id/pokemonIndex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pokemonText"
@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/nextPreviousGrid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeResponse">
+        app:layout_constraintTop_toBottomOf="@+id/pokemonIndex">
 
         <Button
             android:id="@+id/type"
@@ -51,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokeResponse" />
+            app:layout_constraintTop_toBottomOf="@+id/pokemonIndex" />
 
         <Button
             android:id="@+id/type2"
@@ -109,7 +109,7 @@
         android:id="@+id/pokemonImage"
         android:layout_width="475px"
         android:layout_height="475px"
-        app:layout_constraintBottom_toTopOf="@+id/pokeResponse"
+        app:layout_constraintBottom_toTopOf="@+id/pokemonIndex"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pokemonName"
