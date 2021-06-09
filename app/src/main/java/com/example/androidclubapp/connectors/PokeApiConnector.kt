@@ -49,7 +49,7 @@ class PokeApiConnector {
         }
     }
 
-    fun search(view: View, matching: String) {
+    fun search(view: View, listener: Response.Listener<PokemonList>) {
         val url = "https://pokeapi.co/api/v2/pokemon?limit=898"
 
         val queue = Volley.newRequestQueue(view.context)
@@ -58,15 +58,7 @@ class PokeApiConnector {
             url,
             PokemonList::class.java,
             null,
-            Response.Listener { pokemon ->
-
-                val matchedPokemon: List<PokemonListItem> = pokemon.results.filter {
-                    it.name.contains(matching)
-                }
-
-                // TODO Display matched pokemon
-
-            },
+            listener,
             Response.ErrorListener { error ->
                 // TODO: Handle error
             }
