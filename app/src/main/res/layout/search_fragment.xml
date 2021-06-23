@@ -13,10 +13,19 @@
         android:layout_height="wrap_content"
         android:text="@string/pokeSearch"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/pokeSearchInput"
+        app:layout_constraintBottom_toTopOf="@+id/pokeSearchResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pokeSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="650px"
+        app:layout_constraintBottom_toTopOf="@+id/pokeSearchInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pokeSearch" />
 
     <EditText
         android:id="@+id/pokeSearchInput"
@@ -24,22 +33,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/pokeSearchInput"
-        app:layout_constraintBottom_toBottomOf="@+id/pokeSearchResults"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeSearch" />
-
-    <TextView
-        android:id="@+id/pokeSearchResults"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pokeSearchResults"
-        android:textSize="18sp"
+        android:hint="@string/pokeSearchInput"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pokeSearchInput" />
+        app:layout_constraintTop_toBottomOf="@+id/pokeSearchResults" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

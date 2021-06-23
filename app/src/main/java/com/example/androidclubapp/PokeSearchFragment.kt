@@ -1,19 +1,20 @@
 package com.example.androidclubapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
 import com.example.androidclubapp.connectors.PokeApiConnector
 import com.example.androidclubapp.models.PokemonList
 import com.example.androidclubapp.models.PokemonListItem
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -49,8 +50,13 @@ class PokeSearchFragment : Fragment() {
                 it.name.contains(textBox.text)
             }
 
-            view.findViewById<TextView>(R.id.pokeSearchResults).text = matchedPokemon.map{ it.name }.toString()
-
+            // set up the RecyclerView
+            val recyclerView: RecyclerView = view.findViewById(R.id.pokeSearchResults)
+            recyclerView.layoutManager = LinearLayoutManager(view.context)
+            val adapter: SearchViewAdapter = SearchViewAdapter(matchedPokemon)
+            recyclerView.adapter = adapter
         }
     }
+
+
 }

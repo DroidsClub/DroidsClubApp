@@ -8,10 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import com.android.volley.Response
 import com.example.androidclubapp.connectors.PokeApiConnector
-import com.example.androidclubapp.models.PokemonList
-import com.example.androidclubapp.models.PokemonListItem
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -27,7 +24,7 @@ class AndroidClubFragment : Fragment() {
     }
 
     fun getIdAndMakeApiCall(view: View, next: Boolean, connector: PokeApiConnector){
-        val pokemonText = view.findViewById<TextView>(R.id.pokeResponse).text
+        val pokemonText = view.findViewById<TextView>(R.id.pokemonIndex).text
 
         val id = pokemonText.drop(1).take(3)
 

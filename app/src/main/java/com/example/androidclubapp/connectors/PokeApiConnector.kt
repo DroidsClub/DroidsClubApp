@@ -10,7 +10,6 @@ import com.android.volley.toolbox.Volley
 import com.example.androidclubapp.R
 import com.example.androidclubapp.models.Pokemon
 import com.example.androidclubapp.models.PokemonList
-import com.example.androidclubapp.models.PokemonListItem
 
 class PokeApiConnector {
 
@@ -67,6 +66,29 @@ class PokeApiConnector {
         queue.add(request)
     }
 
+    fun doApiCallWithUrl(view: View, url: String) {
+        val queue = Volley.newRequestQueue(view.context)
+
+        val request = GsonRequest(
+            url,
+            Pokemon::class.java,
+            null,
+            Response.Listener { pokemon ->
+
+                logger("Pokemon: $pokemon")
+
+                val viewId = "#" + "00${pokemon.id}".takeLast(3)
+                DownloadImageFromInternet(view.findViewById(R.id.foundPokemonImage)).execute(pokemon.sprites.other.`official-artwork`.front_default)
+                view.findViewById<TextView>(R.id.foundPokemonIndex).text = viewId
+            },
+            Response.ErrorListener { error ->
+                // TODO: Handle error
+            }
+        )
+
+        queue.add(request)
+    }
+
     fun doApiCall(view: View, index: Int) {
         val url = "https://pokeapi.co/api/v2/pokemon/$index"
 
@@ -85,7 +107,7 @@ class PokeApiConnector {
                 DownloadImageFromInternet(view.findViewById(R.id.pokemonImage)).execute(pokemon.sprites.other.`official-artwork`.front_default)
 
                 view.findViewById<TextView>(R.id.pokemonName).text = pokemon?.name.toString().capitalize()
-                view.findViewById<TextView>(R.id.pokeResponse).text = viewId
+                view.findViewById<TextView>(R.id.pokemonIndex).text = viewId
 
                 when (pokemon.id.toInt()) {
                     1 -> view.findViewById<Button>(R.id.button_previous).visibility = View.GONE
