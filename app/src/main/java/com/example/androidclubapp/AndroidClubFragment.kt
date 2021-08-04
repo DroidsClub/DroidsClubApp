@@ -3,6 +3,7 @@ package com.example.androidclubapp
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -53,5 +54,9 @@ class AndroidClubFragment : Fragment() {
         view.findViewById<Button>(R.id.buttonA).setOnClickListener {
             findNavController().navigate(R.id.action_Home_to_Search)
         }
+
+//        view.findViewById<Button>(R.id.action_Search).setOnClickListener {
+//            findNavController().navigate(R.id.action_Home_to_Search)
+//        }
     }
 }

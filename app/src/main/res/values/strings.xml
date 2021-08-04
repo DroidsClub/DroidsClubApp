@@ -20,4 +20,5 @@
     <string name="pokeSearchInput">Start typing a Pokémon…</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="pokemonText">Pokemon!</string>
+    <string name="back">Back</string>
 </resources>

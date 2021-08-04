@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Response
@@ -47,7 +49,7 @@ class PokeSearchFragment : Fragment() {
         textBox.doAfterTextChanged {
 
             val matchedPokemon: List<PokemonListItem> = pokemonList.results.filter {
-                it.name.contains(textBox.text)
+                it.name.contains(textBox.text.toString().toLowerCase())
             }
 
             // set up the RecyclerView
@@ -55,6 +57,10 @@ class PokeSearchFragment : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(view.context)
             val adapter: SearchViewAdapter = SearchViewAdapter(matchedPokemon)
             recyclerView.adapter = adapter
+        }
+
+        view.findViewById<Button>(R.id.backButton).setOnClickListener {
+            findNavController().navigate(R.id.action_Search_to_Home)
         }
     }
 

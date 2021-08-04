@@ -21,6 +21,10 @@
         android:label="@string/search_fragment_label"
         tools:layout="@layout/search_fragment">
 
+        <action
+            android:id="@+id/action_Search_to_Home"
+            app:destination="@id/AndroidClubFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/MuhammedFragment"
