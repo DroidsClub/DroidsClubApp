@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.androidclubapp.connectors.PokeApiConnector
@@ -50,8 +51,12 @@ class AndroidClubFragment : Fragment() {
             getIdAndMakeApiCall(view,false, connector)
         }
 
-        view.findViewById<Button>(R.id.buttonA).setOnClickListener {
+        view.findViewById<Button>(R.id.buttonSearch).setOnClickListener {
             findNavController().navigate(R.id.action_Home_to_Search)
+        }
+
+        view.findViewById<ImageView>(R.id.pokemonImage).setOnClickListener {
+            findNavController().navigate(R.id.action_Home_to_Details)
         }
     }
 }

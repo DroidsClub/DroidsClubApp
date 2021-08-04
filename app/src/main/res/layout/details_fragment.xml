@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PokeDetailsFragment">
+
+    <TextView
+        android:id="@+id/detailsPokemonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_first_fragment"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/detailsPokemonImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/detailsPokemonImage"
+        android:layout_width="475px"
+        android:layout_height="475px"
+        app:layout_constraintBottom_toTopOf="@+id/detailsPokemonIndex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsPokemonName"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/detailsPokemonIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pokemonText"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/detailsTypeGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsPokemonImage" />
+
+    <GridLayout
+        android:id="@+id/detailsTypeGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsPokemonIndex"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/detailsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_orange"
+            android:text="@string/type"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/detailsType2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsPokemonIndex" />
+
+        <Button
+            android:id="@+id/detailsType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button_orange"
+            android:text="@string/type_2"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsType"
+            tools:visibility="visible" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

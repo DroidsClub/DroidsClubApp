@@ -152,4 +152,59 @@ class PokeApiConnector {
 
         queue.add(request)
     }
+
+    fun doDetailsApiCall(view: View, index: Int) {
+        val url = "https://pokeapi.co/api/v2/pokemon/$index"
+
+        val queue = Volley.newRequestQueue(view.context)
+
+        val request = GsonRequest(
+            url,
+            Pokemon::class.java,
+            null,
+            Response.Listener { pokemon ->
+
+                logger("Pokemon: $pokemon")
+
+                val viewId = "#" + "00${pokemon.id}".takeLast(3)
+
+                DownloadImageFromInternet(view.findViewById(R.id.detailsPokemonImage)).execute(pokemon.sprites.other.`official-artwork`.front_default)
+
+                view.findViewById<TextView>(R.id.detailsPokemonName).text = pokemon?.name.toString().capitalize()
+                view.findViewById<TextView>(R.id.detailsPokemonIndex).text = viewId
+
+                if(pokemon.types.size > 1){
+                    view.findViewById<Button>(R.id.detailsType).text = pokemon.types[0].type.name
+                    view.findViewById<Button>(R.id.detailsType2).text = pokemon.types[1].type.name
+                    view.findViewById<Button>(R.id.detailsType2).visibility = View.VISIBLE
+
+                    val button = view.findViewById<Button>(R.id.detailsType)
+                    val button2 = view.findViewById<Button>(R.id.detailsType2)
+
+                    val color: Int = typeToColor(view, pokemon.types[0].type.name)
+                    val color2 = typeToColor(view, pokemon.types[1].type.name)
+
+                    changeColor(button, color)
+                    changeColor(button2, color2)
+
+                } else {
+
+                    val button = view.findViewById<Button>(R.id.detailsType)
+
+                    view.findViewById<Button>(R.id.detailsType).text = pokemon.types[0].type.name
+                    view.findViewById<Button>(R.id.detailsType2).visibility = View.GONE
+
+                    val color: Int = typeToColor(view, pokemon.types[0].type.name)
+                    changeColor(button, color)
+
+                }
+
+            },
+            Response.ErrorListener { error ->
+                // TODO: Handle error
+            }
+        )
+
+        queue.add(request)
+    }
 }
