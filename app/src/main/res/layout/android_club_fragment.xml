@@ -116,7 +116,7 @@
         tools:src="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/buttonA"
+        android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
