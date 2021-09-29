@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,7 @@ import com.android.volley.Response
 import com.example.androidclubapp.connectors.PokeApiConnector
 import com.example.androidclubapp.models.PokemonList
 import com.example.androidclubapp.models.PokemonListItem
+import com.example.androidclubapp.models.PokemonViewModel
 
 
 /**
@@ -31,6 +33,8 @@ class PokeSearchFragment : Fragment() {
         return inflater.inflate(R.layout.search_fragment, container, false)
     }
 
+    private val pokemonViewModel: PokemonViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,6 +49,8 @@ class PokeSearchFragment : Fragment() {
         connector.search(view, listener)
 
         val textBox = view.findViewById<EditText>(R.id.pokeSearchInput)
+
+//        pokemonViewModel.doSomethingWithPokemon(this, view, ::doingSomething)
 
         textBox.doAfterTextChanged {
 
@@ -62,6 +68,10 @@ class PokeSearchFragment : Fragment() {
         view.findViewById<Button>(R.id.backButton).setOnClickListener {
             findNavController().navigate(R.id.action_Search_to_Home)
         }
+    }
+
+    fun doingSomething(pokemon: List<PokemonListItem>, view: SearchViewAdapter.ViewHolder){
+        view.textView.text = "Done the function"
     }
 
 
