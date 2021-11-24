@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavoritesAdapter"
+    android:background="@color/white"
+    android:maxHeight="75dp"
+    android:id="@+id/categoryView">
+
+    <GridLayout
+        android:id="@+id/favoriteViewLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_button_blue"
+        android:columnCount="4"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.87"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.98">
+
+        <TextView
+            android:id="@+id/favoriteId"
+            android:text="@string/favorite_id"
+            android:textSize="18sp"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="0.2"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/favoriteIdEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:gravity="center"
+            android:layout_columnWeight="0.2"
+            android:layout_marginStart="10dp"
+            android:hint="@string/item_favorite_default"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textColor="@color/operator_orange"
+            android:textColorHint="@color/operator_orange"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:backgroundTint="@color/operator_orange" />
+
+        <TextView
+            android:id="@+id/favoriteViewName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/name"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="0.4"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:fadingEdge="horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/favoriteEdit"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:tint="@color/white"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="0.15"
+            android:layout_height="0dp"
+            android:layout_marginBottom="18dp"
+            android:layout_gravity="fill"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/favoriteEditSave"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/ic_baseline_save_24"
+            android:tint="@color/white"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="0.15"
+            android:layout_height="0dp"
+            android:layout_marginBottom="18dp"
+            android:layout_gravity="fill"
+            android:visibility="gone"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/favoriteDelete"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:tint="@color/white"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_columnWeight="0.15"
+            android:layout_marginEnd="8dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="18dp"
+            android:layout_gravity="fill"
+            />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

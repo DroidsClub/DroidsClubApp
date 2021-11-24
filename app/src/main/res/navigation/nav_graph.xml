@@ -5,6 +5,10 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/AndroidClubFragment">
 
+    <action
+        android:id="@+id/action_to_Details"
+        app:destination="@id/PokeDetailsFragment" />
+
     <fragment
         android:id="@+id/AndroidClubFragment"
         android:name="com.example.androidclubapp.AndroidClubFragment"
@@ -18,6 +22,11 @@
             android:id="@+id/action_Home_to_Details"
             app:destination="@id/PokeDetailsFragment" />
     </fragment>
+
+    <action
+        android:id="@+id/action_to_Favorites"
+        app:destination="@id/ManageFavorites" />
+
     <fragment
         android:id="@+id/PokeSearchFragment"
         android:name="com.example.androidclubapp.PokeSearchFragment"
@@ -28,6 +37,12 @@
             android:id="@+id/action_Search_to_Home"
             app:destination="@id/AndroidClubFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/ManageFavorites"
+        android:name="com.example.androidclubapp.ManageFavorites"
+        android:label="@string/manage_favorites"
+        tools:layout="@layout/manage_favorites">
     </fragment>
     <fragment
         android:id="@+id/PokeDetailsFragment"
