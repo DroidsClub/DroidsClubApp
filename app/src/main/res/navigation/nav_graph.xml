@@ -14,12 +14,30 @@
         <action
             android:id="@+id/action_Home_to_Search"
             app:destination="@id/PokeSearchFragment" />
+        <action
+            android:id="@+id/action_Home_to_Details"
+            app:destination="@id/PokeDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/PokeSearchFragment"
         android:name="com.example.androidclubapp.PokeSearchFragment"
         android:label="@string/search_fragment_label"
         tools:layout="@layout/search_fragment">
+
+        <action
+            android:id="@+id/action_Search_to_Home"
+            app:destination="@id/AndroidClubFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/PokeDetailsFragment"
+        android:name="com.example.androidclubapp.PokeDetailsFragment"
+        android:label="@string/details_fragment_label"
+        tools:layout="@layout/details_fragment">
+
+        <action
+            android:id="@+id/action_Details_to_Home"
+            app:destination="@id/AndroidClubFragment" />
 
     </fragment>
     <fragment

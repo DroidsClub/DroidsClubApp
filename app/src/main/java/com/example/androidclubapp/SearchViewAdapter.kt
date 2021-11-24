@@ -46,6 +46,9 @@ class SearchViewAdapter(private val dataSet: List<PokemonListItem>) :
         // contents of the view with that element
         viewHolder.textView.text = dataSet[position].name.capitalize()
 
+
+
+
         val connector: PokeApiConnector = PokeApiConnector()
         connector.doApiCallWithUrl(viewHolder.fullView,dataSet[position].url)
     }

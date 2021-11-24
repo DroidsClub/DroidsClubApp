@@ -5,6 +5,7 @@
     <string name="android_club_fragment_label">Android Club</string>
     <string name="muhammed_fragment_label">Muhammed</string>
     <string name="search_fragment_label">Search</string>
+    <string name="details_fragment_label">Details</string>
     <string name="david_fragment_label">David</string>
     <string name="emma_fragment_label">Emma</string>
     <string name="ben_fragment_label">Ben</string>
@@ -20,4 +21,7 @@
     <string name="pokeSearchInput">Start typing a Pokémon…</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="pokemonText">Pokemon!</string>
+    <string name="back">Back</string>
+    <string name="type">Type</string>
+    <string name="type_2">Type 2</string>
 </resources>
