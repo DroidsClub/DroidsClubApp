@@ -18,6 +18,7 @@ import com.example.androidclubapp.models.FavoritePokemon
 import com.example.androidclubapp.models.PokemonViewModel
 import com.example.androidclubapp.utils.CommonMethods.makeTextViewHorizontalScroll
 import com.example.androidclubapp.utils.CommonMethods.toEditable
+import android.content.Context
 
 class FavoritesAdapter(private val pokemonViewModel: PokemonViewModel, val resources: Resources, val lifecycleOwner: LifecycleOwner, val connector: PokeApiConnector) :
 
@@ -68,8 +69,8 @@ class FavoritesAdapter(private val pokemonViewModel: PokemonViewModel, val resou
         this.position = position
     }
 
-    fun addNewFavorite(id: Int){
-        pokemonViewModel.saveFavorite(id)
+    fun addNewFavorite(id: Int, context: Context){
+        pokemonViewModel.saveFavorite(id, context)
         this.notifyDataSetChanged()
       //  this.notifyItemRangeChanged(0,this.itemCount)
     }

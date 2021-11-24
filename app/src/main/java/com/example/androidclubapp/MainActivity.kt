@@ -7,17 +7,40 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
-
+import com.example.androidclubapp.models.PokemonViewModel
+import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
 
     private var out: String? = null
     private val results: Bundle? = null
 
+    private val viewModel: PokemonViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+
+        viewModel.setDatabaseService(applicationContext){
+            val userId = viewModel.generateUserId(applicationContext, async = true)
+
+            it.getLatestUsersBoxesAsync(userId){ data ->
+
+                viewModel.swapToDifferentUserData(data)
+                viewModel.dbCreated(true)
+            }
+        }
+
+        viewModel.doSomethingAfterDBCreated(this,::afterDBCreated)
+
+       // setContentView(R.layout.activity_main)
+       // setSupportActionBar(findViewById(R.id.toolbar))
+    }
+
+    fun afterDBCreated(dbCreated: Boolean){
+        if(dbCreated) {
+            setContentView(R.layout.activity_main)
+            setSupportActionBar(findViewById(R.id.toolbar))
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

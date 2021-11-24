@@ -37,7 +37,7 @@ class ManageFavorites : Fragment() {
         recyclerView.adapter = adapter
 
         view.findViewById<ImageView>(R.id.addNewFavorite).setOnClickListener {
-            adapter.addNewFavorite(1)
+            adapter.addNewFavorite(1, requireContext())
         }
     }
 }

@@ -53,7 +53,7 @@ class PokeDetailsFragment : Fragment() {
         }
 
         view.findViewById<ImageView>(R.id.favoriteAdd).setOnClickListener {
-            pokemonViewModel.cycleFavorited(idFromModel)
+            pokemonViewModel.cycleFavorited(idFromModel, requireContext())
         }
 
         view.findViewById<ImageView>(R.id.favoriteAdd).setOnLongClickListener {
