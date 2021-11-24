@@ -44,7 +44,7 @@
             android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button_orange"
+            android:background="@drawable/rounded_button_blue"
             android:text="Type"
             android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/type2"
@@ -57,7 +57,7 @@
             android:id="@+id/type2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button_orange"
+            android:background="@drawable/rounded_button_blue"
             android:text="Type 2"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
@@ -120,7 +120,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
-        tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="679dp" />
+        app:layout_constraintBottom_toTopOf="@+id/pokemonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

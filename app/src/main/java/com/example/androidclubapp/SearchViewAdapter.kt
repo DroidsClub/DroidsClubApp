@@ -1,15 +1,20 @@
 package com.example.androidclubapp
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidclubapp.connectors.PokeApiConnector
 import com.example.androidclubapp.models.PokemonListItem
+import com.example.androidclubapp.models.PokemonViewModel
 
-class SearchViewAdapter(private val dataSet: List<PokemonListItem>) :
+class SearchViewAdapter(private val dataSet: List<PokemonListItem>, val pokemonViewModel: PokemonViewModel, val resources: Resources, val fragment: Fragment) :
 
     RecyclerView.Adapter<SearchViewAdapter.ViewHolder>() {
 
@@ -46,11 +51,9 @@ class SearchViewAdapter(private val dataSet: List<PokemonListItem>) :
         // contents of the view with that element
         viewHolder.textView.text = dataSet[position].name.capitalize()
 
-
-
-
-        val connector: PokeApiConnector = PokeApiConnector()
-        connector.doApiCallWithUrl(viewHolder.fullView,dataSet[position].url)
+        val connector: PokeApiConnector = PokeApiConnector(pokemonViewModel,resources)
+        connector.doApiCallWithUrl(viewHolder.fullView,dataSet[position].url,
+            { fragment.findNavController().navigate(R.id.action_to_Details) })
     }
 
     // Return the size of your dataset (invoked by the layout manager)

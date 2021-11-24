@@ -38,7 +38,7 @@ class PokeSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val connector: PokeApiConnector = PokeApiConnector()
+        val connector: PokeApiConnector = PokeApiConnector(pokemonViewModel,resources)
 
         var pokemonList: PokemonList = PokemonList(emptyArray())
 
@@ -50,8 +50,6 @@ class PokeSearchFragment : Fragment() {
 
         val textBox = view.findViewById<EditText>(R.id.pokeSearchInput)
 
-//        pokemonViewModel.doSomethingWithPokemon(this, view, ::doingSomething)
-
         textBox.doAfterTextChanged {
 
             val matchedPokemon: List<PokemonListItem> = pokemonList.results.filter {
@@ -61,7 +59,7 @@ class PokeSearchFragment : Fragment() {
             // set up the RecyclerView
             val recyclerView: RecyclerView = view.findViewById(R.id.pokeSearchResults)
             recyclerView.layoutManager = LinearLayoutManager(view.context)
-            val adapter: SearchViewAdapter = SearchViewAdapter(matchedPokemon)
+            val adapter: SearchViewAdapter = SearchViewAdapter(matchedPokemon,pokemonViewModel,resources, this)
             recyclerView.adapter = adapter
         }
 

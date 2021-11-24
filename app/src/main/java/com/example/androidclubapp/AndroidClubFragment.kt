@@ -52,7 +52,7 @@ class AndroidClubFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val connector: PokeApiConnector = PokeApiConnector()
+        val connector: PokeApiConnector = PokeApiConnector(pokemonViewModel, resources)
 
         view.findViewById<Button>(R.id.button_next).setOnClickListener {
             getIdAndMakeApiCall(view,true, connector)

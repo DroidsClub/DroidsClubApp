@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.example.androidclubapp.connectors.PokeApiConnector
+import com.example.androidclubapp.models.FavoritePokemon
 import com.example.androidclubapp.models.PokemonViewModel
 
 
@@ -40,12 +43,30 @@ class PokeDetailsFragment : Fragment() {
         val idFromModel = pokemonViewModel.selectedPokemon.value?.id ?: 1
 
         connector.doDetailsApiCall(view, idFromModel)
+
+        pokemonViewModel.favoritePokemon.observe(viewLifecycleOwner) { favorites ->
+            if(favorites.contains(FavoritePokemon(idFromModel))){
+                view.findViewById<ImageView>(R.id.favoriteAdd).drawable.setTint(resources.getColor(R.color.red))
+            } else {
+                view.findViewById<ImageView>(R.id.favoriteAdd).drawable.setTint(resources.getColor(R.color.dark))
+            }
+        }
+
+        view.findViewById<ImageView>(R.id.favoriteAdd).setOnClickListener {
+            pokemonViewModel.cycleFavorited(idFromModel, requireContext())
+        }
+
+        view.findViewById<ImageView>(R.id.favoriteAdd).setOnLongClickListener {
+            findNavController().navigate(R.id.action_to_Favorites)
+
+            true
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val connector: PokeApiConnector = PokeApiConnector()
+        val connector: PokeApiConnector = PokeApiConnector(pokemonViewModel,resources)
         getIdAndMakeApiCall(view, connector,savedInstanceState)
 
         view.findViewById<Button>(R.id.detailsBackButton).setOnClickListener {
